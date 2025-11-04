@@ -213,7 +213,7 @@ const FoodCard: React.FC<FoodCardProps> = ({
           >
             Go to Cart
             <img
-              src="/../assets/cart.png"
+              src="../assets/cart.png"
               alt="cart"
               className="w-[24px] h-[24px]"
             />
