@@ -1,14 +1,16 @@
 import React from "react";
+import cash from "/src/assets/cash.png"
+import online from "/src/assets/barcode.png"
 
 const PaymentOptions: React.FC = () => {
   const options = [
     {
       name: "Pay Cash",
-      logo: "/src/assets/cash.png",
+      logo: cash,
     },
     {
       name: "Pay Online",
-      logo: "/src/assets/barcode.png",
+      logo: online,
     },
   ];
 

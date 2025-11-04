@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 import SuggestionFoodCard from "./SuggestionCart";
 import InfoCard from "./InfoCard";
 import { useLocation } from "react-router-dom";
+import pina from "../assets/Pinacolada.jpg";
+import mocktail from "../assets/Mocktail.jpg";
+import cola from "../assets/Cola.jpg";
 
 // import Navbar from "./Navbar";
 
@@ -22,7 +25,7 @@ if (!drink) {
     >AR View Not Available.</div>;
   }
 
-  console.log(drink)
+  // console.log(drink)
   // const nutrients = [
   //   { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] }, // red → pink
   //   { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] }, // green gradient
@@ -40,27 +43,27 @@ if (!drink) {
 
    const drinks = [
     {
-      image: "/src/assets/Pinacolada.jpg",
+      image: pina,
       name: "Pina Colada",
       price: 890,
       description:
         "Non-alcoholic version of a tropical cocktail with coconut and pineapple.",
     },
     {
-      image: "/src/assets/Mocktail.jpg",
+      image: mocktail,
       name: "Virgin Mojito",
       price: 750,
       description:
         "Non-alcoholic versions of cocktails, often fruit- or syrup-based.",
     },
     {
-      image: "/src/assets/Cola.jpg",
+      image:cola,
       name: "Blue Lagoon",
       price: 820,
       description: "Vibrant lemon-lime soda mixed with blue curacao syrup.",
     },
      {
-      image: "/src/assets/Cola.jpg",
+      image: cola,
       name: "Blue Lagoon",
       price: 820,
       description: "Vibrant lemon-lime soda mixed with blue curacao syrup.",
@@ -192,7 +195,7 @@ if (!drink) {
   </h2>
 
   <Swiper
-    modules={[Navigation, Pagination, Autoplay]}
+    modules={[ Pagination, Autoplay]}
     spaceBetween={20}
     slidesPerView={1}
     navigation

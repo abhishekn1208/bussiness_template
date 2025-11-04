@@ -1,3 +1,8 @@
+import drinks from "/src/assets/drinks.png"
+import starter from "/src/assets/starter.png"
+import meal from "/src/assets/Meal.png"
+import dessert from "/src/assets/Dessert.png"
+
 type SidebarProps = {
   onSelectCategory: (name: string) => void;
   selectedCategory: string;
@@ -5,10 +10,10 @@ type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({ onSelectCategory, selectedCategory }) => {
   const menuItems = [
-    { name: "Drinks", image: "/src/assets/drinks.png" },
-    { name: "Starter", image: "/src/assets/starter.png" },
-    { name: "Meal", image: "/src/assets/Meal.png" },
-    { name: "Dessert", image: "/src/assets/Dessert.png" },
+    { name: "Drinks", image: drinks },
+    { name: "Starter", image: starter },
+    { name: "Meal", image: meal },
+    { name: "Dessert", image: dessert },
   ];
 
   return (

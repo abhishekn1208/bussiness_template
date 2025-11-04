@@ -1,11 +1,18 @@
 import React from "react";
+import mascot from 'src/assets/mascot.png'
+import drinks from '/src/assets/drinks.png'
+import starter from "/src/assets/starter.png"
+import meal from "/src/assets/Meal.png"
+import dessert from "/src/assets/Dessert.png"
+
+
 
 const steps = [
-  { id: 1, icon: "/src/assets/mascot.png", label: "Waiter" },
-  { id: 2, icon: "/src/assets/drinks.png", label: "Drinks" },
-  { id: 3, icon: "/src/assets/starter.png", label: "Starter" },
-  { id: 4, icon: "/src/assets/Meal.png", label: "Main Course" },
-  { id: 5, icon: "/src/assets/Dessert.png", label: "Dessert" },
+  { id: 1, icon:mascot, label: "Waiter" },
+  { id: 2, icon:drinks , label: "Drinks" },
+  { id: 3, icon: starter, label: "Starter" },
+  { id: 4, icon: meal, label: "Main Course" },
+  { id: 5, icon: dessert, label: "Dessert" },
 ];
 
 export default function MealProgress({ orderedCategories = [] }) {

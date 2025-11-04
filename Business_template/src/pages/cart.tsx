@@ -7,6 +7,9 @@ import PaymentOptions from "../components/Payment";
 import { removeFromCart } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import banner1 from "/src/assets/Banner1.png"
+import banner2 from "/src/assets/Banner2.png"
+import banner3 from "/src/assets/Banner3.png"
 
 const CartPage = ({selectedCategory,setSelectedCategory,setOrderedCategories,orderedCategories}) => {
   const { items, totalPrice, totalQuantity } = useSelector(
@@ -27,7 +30,7 @@ const CartPage = ({selectedCategory,setSelectedCategory,setOrderedCategories,ord
   //     );
   //   }
   const handleRemove = (id: string,selectedCategory:string) => {
-    console.log(items)
+    // console.log(items)
     setOrderedCategories((prev) =>
         prev.filter((category) => category !== selectedCategory)
       );
@@ -35,9 +38,9 @@ const CartPage = ({selectedCategory,setSelectedCategory,setOrderedCategories,ord
     dispatch(removeFromCart(id)); // Your redux action
   };
   const banners = [
-    "/src/assets/Banner1.png",
-    "/src/assets/Banner2.png",
-    "/src/assets/Banner3.png",
+    banner1,
+    banner2,
+    banner3,
   ];
   return (
     <div className="px-2 py-4">

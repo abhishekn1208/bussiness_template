@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { useNavigate } from "react-router-dom";
+import cart from "/src/assets/cart.png"
 
 type MessageProp = {
   message : string
@@ -24,7 +25,7 @@ const Navbar = ({message}:MessageProp) => {
       onClick={()=>navigate("/cart")}
       >
         <img
-          src="/src/assets/cart.png"
+          src={cart}
           alt="cart"
           className="w-[40px] h-[44px] object-contain transition-transform duration-300 group-hover:scale-110"
         />
