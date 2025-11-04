@@ -1,6 +1,6 @@
 import React from "react";
-import cash from "/src/assets/cash.png"
-import online from "/src/assets/barcode.png"
+import cash from "/../assets/cash.png"
+import online from "/../assets/barcode.png"
 
 const PaymentOptions: React.FC = () => {
   const options = [

@@ -4,18 +4,18 @@ import Sidebar from "../components/Sidebar";
 import Banner from "../components/Banner";
 import { addToCart } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
-import jd from "/src/assets/JD.jpg";
-import jdGif from "/src/assets/jd.gif";
-import glass from "/src/assets/glass.png";
-import jmsn from "/src/assets/jamienson.png";
-import cokeGif from "/src/assets/coke.gif";
-import jb from "/src/assets/jim.png";
-import tempura from "/src/assets/tempura.png";
-import prawns from "/src/assets/prawn.jpg";
-import lamb from "/src/assets/lamb.png";
-import banner1 from "/src/assets/Banner1.png";
-import banner2 from "/src/assets/Banner2.png";
-import banner3 from "/src/assets/Banner3.png";
+import jd from '../assets/jd.gif';
+import jdGif from "/../assets/jd.gif";
+import glass from "/../assets/glass.png";
+import jmsn from "/../assets/jamienson.png";
+import cokeGif from "/../assets/coke.gif";
+import jb from "/../assets/jim.png";
+import tempura from "/../assets/tempura.png";
+import prawns from "/../assets/prawn.jpg";
+import lamb from "/../assets/lamb.png";
+import banner1 from "/../assets/Banner1.png";
+import banner2 from "/../assets/Banner2.png";
+import banner3 from "/../assets/Banner3.png";
 
 const Cater = ({
   orderedCategories,
@@ -37,7 +37,7 @@ const Cater = ({
       gif: jdGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 890, icon: "/src/assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 890, icon: "/../assets/glass.png" },
         {
           quantity: 60,
           unit: "ml",
@@ -78,7 +78,7 @@ const Cater = ({
       gif: cokeGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 790, icon: "/src/assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 790, icon: "/../assets/glass.png" },
         {
           quantity: 60,
           unit: "ml",
@@ -118,7 +118,7 @@ const Cater = ({
       gif: cokeGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 820, icon: "/src/assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 820, icon: "/../assets/glass.png" },
         {
           quantity: 60,
           unit: "ml",
@@ -161,18 +161,18 @@ const Cater = ({
       price: 390,
 
       // variables: [
-      //   { quantity: 30, unit: "ml", price: 890, icon: "/src/assets/glass.png" },
+      //   { quantity: 30, unit: "ml", price: 890, icon: "/../assets/glass.png" },
       //   {
       //     quantity: 60,
       //     unit: "ml",
       //     price: 1650,
-      //     icon: "/src/assets/glass.png",
+      //     icon: "/../assets/glass.png",
       //   },
       //   {
       //     quantity: 90,
       //     unit: "ml",
       //     price: 2390,
-      //     icon: "/src/assets/glass.png",
+      //     icon: "/../assets/glass.png",
       //   },
       // ],
 
@@ -181,7 +181,7 @@ const Cater = ({
       //     quantity: 750,
       //     unit: "ml",
       //     off : 10,
-      //     icon: "/src/assets/JD.jpg",
+      //     icon: "/../assets/JD.jpg",
       //     price: 3500,
       //   },
       // ],
@@ -203,18 +203,18 @@ const Cater = ({
       price: 490,
 
       // variables: [
-      //   { quantity: 30, unit: "ml", price: 790, icon: "/src/assets/glass.png" },
+      //   { quantity: 30, unit: "ml", price: 790, icon: "/../assets/glass.png" },
       //   {
       //     quantity: 60,
       //     unit: "ml",
       //     price: 1490,
-      //     icon: "/src/assets/glass.png",
+      //     icon: "/../assets/glass.png",
       //   },
       //   {
       //     quantity: 90,
       //     unit: "ml",
       //     price: 2190,
-      //     icon: "/src/assets/glass.png",
+      //     icon: "/../assets/glass.png",
       //   },
       // ],
       // offers: [
@@ -222,7 +222,7 @@ const Cater = ({
       //       quantity: 750,
       //       unit: "ml",
       //       off : 10,
-      //       icon: "/src/assets/jamienson.png",
+      //       icon: "/../assets/jamienson.png",
       //       price: 3500,
       //     },
       //   ],
@@ -243,18 +243,18 @@ const Cater = ({
       gif: cokeGif,
       price: 790,
       // variables: [
-      //   { quantity: 30, unit: "ml", price: 820, icon: "/src/assets/glass.png" },
+      //   { quantity: 30, unit: "ml", price: 820, icon: "/../assets/glass.png" },
       //   {
       //     quantity: 60,
       //     unit: "ml",
       //     price: 1590,
-      //     icon: "/src/assets/glass.png",
+      //     icon: "/../assets/glass.png",
       //   },
       //   {
       //     quantity: 90,
       //     unit: "ml",
       //     price: 2290,
-      //     icon: "/src/assets/glass.png",
+      //     icon: "/../assets/glass.png",
       //   },
       // ],
       //  offers: [
@@ -262,7 +262,7 @@ const Cater = ({
       //           quantity: 750,
       //           unit: "ml",
       //           off : 10,
-      //           icon: "/src/assets/jim.png",
+      //           icon: "/../assets/jim.png",
       //           price: 3500,
       //         },
       //       ],
@@ -341,7 +341,7 @@ const Cater = ({
           ) : (
             <div className="flex flex-col items-center justify-center text-center py-16 text-gray-500">
               {/* <img
-      src="/src/assets/empty-category.png"
+      src="/../assets/empty-category.png"
       alt="No items"
       className="w-40 h-40 mb-6 opacity-80"
     /> */}
