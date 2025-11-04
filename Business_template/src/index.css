@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+
+body {
+  @apply  text-black;
+  font-family: 'Inter', sans-serif;
+}
