@@ -78,7 +78,7 @@ const Cater = ({
       gif: cokeGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 790, icon: "../assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 790, icon: glass },
         {
           quantity: 60,
           unit: "ml",
