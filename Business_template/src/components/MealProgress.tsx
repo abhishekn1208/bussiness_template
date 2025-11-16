@@ -1,9 +1,9 @@
 import React from "react";
-import mascot from '../assets/mascot.png'
-import drinks from '../assets/drinks.png'
-import starter from "../assets/starter.png"
-import meal from "../assets/Meal.png"
-import dessert from "../assets/Dessert.png"
+import mascot from '/assets/mascot.png'
+import drinks from '/assets/drinks.png'
+import starter from "/assets/starter.png"
+import meal from "/assets/Meal.png"
+import dessert from "/assets/Dessert.png"
 
 
 

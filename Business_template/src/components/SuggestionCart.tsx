@@ -1,5 +1,5 @@
 import React from "react";
-import groupIcon from "../assets/Group.svg";
+import groupIcon from "/assets/Group.svg";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";

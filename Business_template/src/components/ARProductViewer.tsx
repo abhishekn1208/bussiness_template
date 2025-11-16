@@ -9,9 +9,9 @@ import { useNavigate } from "react-router-dom";
 import SuggestionFoodCard from "./SuggestionCart";
 import InfoCard from "./InfoCard";
 import { useLocation } from "react-router-dom";
-import pina from "../assets/Pinacolada.jpg";
-import mocktail from "../assets/Mocktail.jpg";
-import cola from "../assets/Cola.jpg";
+import pina from "/assets/Pinacolada.jpg";
+import mocktail from "/assets/Mocktail.jpg";
+import cola from "/assets/Cola.jpg";
 
 // import Navbar from "./Navbar";
 

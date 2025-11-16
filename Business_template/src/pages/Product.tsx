@@ -1,15 +1,14 @@
-import ARProductViewer from "../components/ARProductViewer"
+import ARProductViewer from "../components/ARProductViewer";
 import Navbar from "../components/Navbar";
 
-const ProductPage=()=>{
+const ProductPage = () => {
+  return (
+    <>
+      <Navbar message="AR Menu" />
 
-    return(
-        <>
-         <Navbar message="AR Menu"/>
-         
-        <ARProductViewer/>
-        </>
-    )
-}
+      <ARProductViewer />
+    </>
+  );
+};
 
 export default ProductPage;

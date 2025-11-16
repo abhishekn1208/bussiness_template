@@ -70,7 +70,7 @@ const AddedItems: React.FC<AddedItemsProps> = ({
                     </h2>
                     <p className="text-sm text-gray-600">
                       Quantity: {item.variantQuantity}
-                      {item.unit} × {item.quantity}
+                      {item.unit} × {item.quantity>1 ? item.quantity-1 : item.quantity}
                     </p>
                   </div>
                 </div>

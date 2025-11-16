@@ -4,18 +4,18 @@ import Sidebar from "../components/Sidebar";
 import Banner from "../components/Banner";
 import { addToCart } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
-import jd from '../assets/jd.gif';
-import jdGif from "../assets/jd.gif";
-import glass from "../assets/glass.png";
-import jmsn from "../assets/jamienson.png";
-import cokeGif from "../assets/coke.gif";
-import jb from "../assets/jim.png";
-import tempura from "../assets/tempura.png";
-import prawns from "../assets/prawn.jpg";
-import lamb from "../assets/lamb.png";
-import banner1 from "../assets/Banner1.png";
-import banner2 from "../assets/Banner2.png";
-import banner3 from "../assets/Banner3.png";
+import jd from '/assets/JD.jpg';
+import jdGif from "/assets/jd.gif";
+import glass from "/assets/glass.png";
+import jmsn from "/assets/jamienson.png";
+import cokeGif from "/assets/coke.gif";
+import jb from "/assets/jim.png";
+import tempura from "/assets/tempura.png";
+import prawns from "/assets/prawn.jpg";
+import lamb from "/assets/lamb.png";
+import banner1 from "/assets/Banner1.png";
+import banner2 from "/assets/Banner2.png";
+import banner3 from "/assets/Banner3.png";
 
 const Cater = ({
   orderedCategories,
@@ -37,7 +37,7 @@ const Cater = ({
       gif: jdGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 890, icon: "../assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 890, icon: "/assets/glass.png" },
         {
           quantity: 60,
           unit: "ml",
@@ -118,7 +118,7 @@ const Cater = ({
       gif: cokeGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 820, icon: "../assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 820, icon: "/assets/glass.png" },
         {
           quantity: 60,
           unit: "ml",
@@ -152,7 +152,7 @@ const Cater = ({
 
   const starters = [
     {
-      _id: 1,
+      _id: 4,
       name: "Tempura Enoki Nest",
       image: tempura,
       description:
@@ -161,18 +161,18 @@ const Cater = ({
       price: 390,
 
       // variables: [
-      //   { quantity: 30, unit: "ml", price: 890, icon: "../assets/glass.png" },
+      //   { quantity: 30, unit: "ml", price: 890, icon: "/assets/glass.png" },
       //   {
       //     quantity: 60,
       //     unit: "ml",
       //     price: 1650,
-      //     icon: "../assets/glass.png",
+      //     icon: "/assets/glass.png",
       //   },
       //   {
       //     quantity: 90,
       //     unit: "ml",
       //     price: 2390,
-      //     icon: "../assets/glass.png",
+      //     icon: "/assets/glass.png",
       //   },
       // ],
 
@@ -181,7 +181,7 @@ const Cater = ({
       //     quantity: 750,
       //     unit: "ml",
       //     off : 10,
-      //     icon: "../assets/JD.jpg",
+      //     icon: "/assets/JD.jpg",
       //     price: 3500,
       //   },
       // ],
@@ -194,7 +194,7 @@ const Cater = ({
     },
 
     {
-      _id: 2,
+      _id: 5,
       name: "Wasabi Prawn Torpedoes",
       image: prawns,
       description:
@@ -203,18 +203,18 @@ const Cater = ({
       price: 490,
 
       // variables: [
-      //   { quantity: 30, unit: "ml", price: 790, icon: "../assets/glass.png" },
+      //   { quantity: 30, unit: "ml", price: 790, icon: "/assets/glass.png" },
       //   {
       //     quantity: 60,
       //     unit: "ml",
       //     price: 1490,
-      //     icon: "../assets/glass.png",
+      //     icon: "/assets/glass.png",
       //   },
       //   {
       //     quantity: 90,
       //     unit: "ml",
       //     price: 2190,
-      //     icon: "../assets/glass.png",
+      //     icon: "/assets/glass.png",
       //   },
       // ],
       // offers: [
@@ -222,7 +222,7 @@ const Cater = ({
       //       quantity: 750,
       //       unit: "ml",
       //       off : 10,
-      //       icon: "../assets/jamienson.png",
+      //       icon: "/assets/jamienson.png",
       //       price: 3500,
       //     },
       //   ],
@@ -235,7 +235,7 @@ const Cater = ({
     },
 
     {
-      _id: 3,
+      _id: 6,
       name: "Harissa Lamb Cigars",
       image: lamb,
       description:
@@ -243,18 +243,18 @@ const Cater = ({
       gif: cokeGif,
       price: 790,
       // variables: [
-      //   { quantity: 30, unit: "ml", price: 820, icon: "../assets/glass.png" },
+      //   { quantity: 30, unit: "ml", price: 820, icon: "/assets/glass.png" },
       //   {
       //     quantity: 60,
       //     unit: "ml",
       //     price: 1590,
-      //     icon: "../assets/glass.png",
+      //     icon: "/assets/glass.png",
       //   },
       //   {
       //     quantity: 90,
       //     unit: "ml",
       //     price: 2290,
-      //     icon: "../assets/glass.png",
+      //     icon: "/assets/glass.png",
       //   },
       // ],
       //  offers: [
@@ -262,7 +262,7 @@ const Cater = ({
       //           quantity: 750,
       //           unit: "ml",
       //           off : 10,
-      //           icon: "../assets/jim.png",
+      //           icon: "/assets/jim.png",
       //           price: 3500,
       //         },
       //       ],
@@ -312,8 +312,8 @@ const Cater = ({
     <>
       <Banner banners={banners} />
 
-      <div className="flex w-full bg-gray-50 py-6 px-1 gap-1">
-        <div className="h-screen sticky top-0">
+      <div className="flex w-full bg-gray-50 py-6 px-2">
+        <div className="h-screen sticky top-0 w-[85px]">
           <Sidebar
             selectedCategory={selectedCategory}
             onSelectCategory={(name) => setSelectedCategory(name)}
@@ -323,7 +323,7 @@ const Cater = ({
         {/* <div className="flex-1"> */}
         {/* <h2 className="text-3xl font-bold mb-8 text-gray-800">Our Drinks</h2> */}
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 overflow-hidden">
           {/* <h2 className="text-2xl font-bold text-gray-800 mb-4">
             {selectedCategory}
           </h2> */}
@@ -341,7 +341,7 @@ const Cater = ({
           ) : (
             <div className="flex flex-col items-center justify-center text-center py-16 text-gray-500">
               {/* <img
-      src="../assets/empty-category.png"
+      src="/assets/empty-category.png"
       alt="No items"
       className="w-40 h-40 mb-6 opacity-80"
     /> */}

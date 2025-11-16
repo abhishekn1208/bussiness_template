@@ -7,9 +7,9 @@ import PaymentOptions from "../components/Payment";
 import { removeFromCart } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import banner1 from "../assets/Banner1.png"
-import banner2 from "../assets/Banner2.png"
-import banner3 from "../assets/Banner3.png"
+import banner1 from "/assets/Banner1.png"
+import banner2 from "/assets/Banner2.png"
+import banner3 from "/assets/Banner3.png"
 
 const CartPage = ({selectedCategory,setSelectedCategory,setOrderedCategories,orderedCategories}) => {
   const { items, totalPrice, totalQuantity } = useSelector(
