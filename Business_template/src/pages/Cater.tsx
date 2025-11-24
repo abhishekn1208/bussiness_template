@@ -312,8 +312,8 @@ const Cater = ({
     <>
       <Banner banners={banners} />
 
-      <div className="flex w-full bg-gray-50 py-6 px-2">
-        <div className="h-screen sticky top-0 w-[85px]">
+      <div className="flex w-full bg-gray-50 px-2">
+        <div className="h-screen sticky top-0">
           <Sidebar
             selectedCategory={selectedCategory}
             onSelectCategory={(name) => setSelectedCategory(name)}
@@ -323,7 +323,7 @@ const Cater = ({
         {/* <div className="flex-1"> */}
         {/* <h2 className="text-3xl font-bold mb-8 text-gray-800">Our Drinks</h2> */}
 
-        <div className="flex flex-col gap-4 overflow-hidden">
+        <div className="flex flex-col gap-4 overflow-hidden px-2">
           {/* <h2 className="text-2xl font-bold text-gray-800 mb-4">
             {selectedCategory}
           </h2> */}

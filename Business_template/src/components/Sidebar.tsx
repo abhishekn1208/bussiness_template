@@ -20,8 +20,8 @@ const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-400 via-gray-100 to-gray-100 top-0 sticky duration-300 rounded-md overflow-y-auto">
-      <ul className="space-y-6 p-4 pb-8 flex flex-col justify-center items-center">
+    <div className="bg-gradient-to-b from-gray-400 via-gray-100 to-gray-100 top-0 sticky duration-300 rounded-md overflow-y-auto w-[80px]">
+      <ul className="space-y-6 py-4 pb-8 flex flex-col justify-center items-center">
         {menuItems.map((item) => {
           const isSelected = selectedCategory === item.name;
 
@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               key={item.name}
               onClick={() => onSelectCategory(item.name)}
               className={`
-    flex flex-col items-center gap-3 cursor-pointer transition-all duration-300
+    flex flex-col items-center gap-3 w-[60px] cursor-pointer transition-all duration-300
     md:py-6 py-4 px-3 rounded-xl border border-white/20
     shadow-md backdrop-blur-md
     ${

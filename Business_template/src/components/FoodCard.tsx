@@ -40,6 +40,7 @@ const FoodCard: React.FC<FoodCardProps> = ({
   setOrderedCategories,
 }) => {
   const [variantCounts, setVariantCounts] = useState({});
+  const [isAdd, setIsAdd] = useState(false)
   const router = useNavigate();
 // console.log(drink)
   // ⭐ Always store price inside selectedVariant
@@ -101,10 +102,12 @@ const FoodCard: React.FC<FoodCardProps> = ({
 
   // ⭐ Add item to cart
   const handleAdd = () => {
+    setIsAdd(true)
     if (!selectedVariant.quantity) {
       alert("Please select a quantity before adding to cart.");
       return;
     }
+
 
     const key = `${selectedVariant.quantity}${selectedVariant.unit}`;
     const finalPrice = getFinalPrice();
@@ -154,9 +157,9 @@ const FoodCard: React.FC<FoodCardProps> = ({
   const isOffer = selectedVariant.discountedPrice !== undefined;
 
   return (
-    <div className="w-[322px] bg-white rounded-2xl shadow-lg hover:shadow-lg transition-all duration-300 py-4 flex flex-col">
-      <div className="grid grid-cols-[1fr_3fr] px-1 w-[302px] ">
-        <div className="flex flex-col items-center justify-between px-1">
+    <div className="w-[295px] bg-white rounded-2xl shadow-lg hover:shadow-lg transition-all duration-300 py-4 flex flex-col items-center">
+      <div className="grid grid-cols-[1fr_3fr] px-1">
+        <div className="flex flex-col items-center justify-between">
           <img
             src={drink.image}
             alt={drink.name}
@@ -167,7 +170,7 @@ const FoodCard: React.FC<FoodCardProps> = ({
           </span>
         </div>
 
-        <div className="flex flex-col items-start w-[210px]">
+        <div className="flex flex-col items-start w-full">
           <h4 className="text-xl font-semibold text-gray-800">{drink.name}</h4>
           <p className="text-gray-600 text-[10px] mt-1 leading-relaxed">
             {drink.description}
@@ -176,51 +179,57 @@ const FoodCard: React.FC<FoodCardProps> = ({
       </div>
 
       {/* ADD / REMOVE BUTTON */}
-      <div className="flex items-center mt-1 px-1 gap-[1px]">
-        {(variantCounts[`${selectedVariant.quantity}${selectedVariant.unit}`] ||
-          0) === 0 ? (
-          <button
-            onClick={handleAdd}
-            className="flex items-center justify-center p-[10px] w-[142px]
-            border border-gray-600/50 
-            bg-gradient-to-l from-gray-900 to-gray-600 backdrop-blur-md 
-            rounded-md text-white shadow-md text-base font-bold
-            hover:shadow-[0_0_20px_rgba(228,179,1,0.3)] transition-all duration-300"
-          >
-            <IoMdAdd size={20} /> ADD
-          </button>
-        ) : (
-          <div
-            className="flex items-center justify-between p-[10px] w-[143px]
-            border border-gray-600/50 
-            bg-gradient-to-l from-gray-900 to-gray-600 backdrop-blur-md 
-            rounded-md text-white shadow-md transition-all"
-          >
-            <button onClick={handleRemove} className="hover:text-[#e4b301]">
-              <FaMinus />
-            </button>
-            <span className="font-semibold">
-              {variantCounts[
-                `${selectedVariant.quantity}${selectedVariant.unit}`
-              ] || 0}
-            </span>{" "}
-            <button onClick={handleAdd} className="hover:text-[#e4b301]">
-              <FaPlus />
-            </button>
-          </div>
-        )}
+      <div className="flex items-center mt-1 gap-1 w-full px-2">
+       {/* ADD / REMOVE BUTTON */}
+{(variantCounts[`${selectedVariant.quantity}${selectedVariant.unit}`] || 0) === 0 ? (
+  <button
+    onClick={handleAdd}
+    className="flex-1 flex items-center justify-center p-[8px]
+    border border-gray-600/50 
+    bg-gradient-to-l from-gray-900 to-gray-600 backdrop-blur-md 
+    rounded-md text-white shadow-md text-base font-bold
+    hover:shadow-[0_0_20px_rgba(228,179,1,0.3)] transition-all duration-300"
+  >
+    <IoMdAdd size={20} /> ADD
+  </button>
+) : (
+  <div
+    className="flex-1 flex items-center justify-between p-[8px]
+    border border-gray-600/50 
+    bg-gradient-to-l from-gray-900 to-gray-600 backdrop-blur-md 
+    rounded-md text-white shadow-md transition-all"
+  >
+    <button onClick={handleRemove} className="hover:text-[#e4b301]">
+      <FaMinus />
+    </button>
 
-        <button
-          onClick={onViewAR}
-          className="flex items-center justify-center w-[142px] p-[10px] gap-1 border border-gray-400 text-gray-900 rounded-md shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:bg-yellow-50 transition-all duration-300"
-        >
-          What’s Inside
-          <img src={groupIcon} alt="AR icon" className="h-5 w-5" />
-        </button>
+    <span className="font-semibold">
+      {variantCounts[
+        `${selectedVariant.quantity}${selectedVariant.unit}`
+      ] || 0}
+    </span>
+
+    <button onClick={handleAdd} className="hover:text-[#e4b301]">
+      <FaPlus />
+    </button>
+  </div>
+)}
+
+<button
+  onClick={onViewAR}
+  className="flex-1 flex items-center justify-center py-[8px] gap-1 
+  border border-gray-400 text-gray-900 rounded-md 
+  shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:bg-yellow-50 transition-all duration-300"
+>
+  What’s Inside
+  <img src={groupIcon} alt="AR icon" className="h-5 w-5" />
+</button>
+
       </div>
 
       {/* VARIABLES SELECTION */}
-      <div className="flex items-center px-2 gap-1 mt-3 w-[302px]">
+      {isAdd && (
+        <div className="flex items-center px-2 gap-1 mt-3 w-[295px]">
         {drink.variables?.map((variant, i) => (
           <button
             key={i}
@@ -238,9 +247,11 @@ const FoodCard: React.FC<FoodCardProps> = ({
           </button>
         ))}
       </div>
+      )}
 
       {/* OFFERS */}
-      <div className="flex items-center justify-center mt-3 w-[302px] p-[10px] gap-2">
+     {isAdd && (
+       <div className="flex items-center justify-center w-[295px] p-[8px] gap-2">
         {drink.offers?.map((offer, i) => {
           const discounted = offer.price - (offer.price * offer.off) / 100;
 
@@ -273,11 +284,12 @@ const FoodCard: React.FC<FoodCardProps> = ({
           );
         })}
       </div>
+     )}
 
-      {Object.values(variantCounts).some((v) => v > 0) && (
+      {isAdd && Object.values(variantCounts).some((v) => v > 0) && (
         <button
           onClick={handleCart}
-          className="flex gap-1 font-semibold items-center justify-center w-full border border-gray-300 py-2 mt-2 shadow-lg hover:bg-yellow-50 rounded-lg"
+          className="flex font-semibold items-center justify-center w-[275px] border border-gray-300 py-2 mt-2 shadow-lg hover:bg-yellow-50 rounded-lg"
         >
           Go to Cart
           <img
