@@ -17,9 +17,9 @@ const Navbar = ({message}:MessageProp) => {
   return (
     <div className="flex justify-between items-center px-6 py-8 shadow-lg w-full h-[44px]">
       <h1 className="text-[18px] font-extrabold tracking-wide">{message}</h1>
-      <h1 className="text-4xl hidden md:block md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500 drop-shadow-lg animate-pulse">
+      {/* <h1 className="text-4xl hidden md:block md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500 drop-shadow-lg animate-pulse">
         Welcome to Lumière
-      </h1>
+      </h1> */}
 
       <button className="relative group"
       onClick={()=>navigate("/cart")}

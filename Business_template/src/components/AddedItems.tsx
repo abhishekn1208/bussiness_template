@@ -22,6 +22,7 @@ const AddedItems: React.FC<AddedItemsProps> = ({
   totalPrice,
   totalQuantity,
   onRemove,
+  selectedCategory
 }) => {
   if (!items || items.length === 0) {
     return (
@@ -68,10 +69,12 @@ const AddedItems: React.FC<AddedItemsProps> = ({
                     <h2 className="font-medium text-gray-900 text-[15px]">
                       {item.name}
                     </h2>
-                    <p className="text-sm text-gray-600">
+                   {selectedCategory==="Drinks" && (
+                     <p className="text-sm text-gray-600">
                       Quantity: {item.variantQuantity}
                       {item.unit} × {item.quantity>1 ? item.quantity-1 : item.quantity}
                     </p>
+                   )}
                   </div>
                 </div>
 

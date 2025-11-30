@@ -38,9 +38,11 @@ const FoodCard: React.FC<FoodCardProps> = ({
   onViewAR,
   selectedCategory,
   setOrderedCategories,
+  isAdd,
+  setIsAdd
 }) => {
   const [variantCounts, setVariantCounts] = useState({});
-  const [isAdd, setIsAdd] = useState(false)
+  // const [isAdd, setIsAdd] = useState(false)
   const router = useNavigate();
 // console.log(drink)
   // ⭐ Always store price inside selectedVariant
@@ -99,19 +101,22 @@ const FoodCard: React.FC<FoodCardProps> = ({
       ? selectedVariant.price
       : drink.price;
   };
-
+// console.log(selectedCategory)
   // ⭐ Add item to cart
   const handleAdd = () => {
     setIsAdd(true)
-    if (!selectedVariant.quantity) {
+    if(selectedCategory==="Drinks"){
+      if (!selectedVariant.quantity) {
       alert("Please select a quantity before adding to cart.");
       return;
     }
+    }
+    // console.log(isAdd)
 
 
     const key = `${selectedVariant.quantity}${selectedVariant.unit}`;
     const finalPrice = getFinalPrice();
-    console.log(finalPrice)
+    // console.log(finalPrice)
     // update local variant count
     setVariantCounts((prev) => ({
       ...prev,
@@ -165,14 +170,14 @@ const FoodCard: React.FC<FoodCardProps> = ({
             alt={drink.name}
             className="w-[80px] h-[80px] object-cover hover:scale-105 transition-transform duration-300 rounded-xl"
           />
-          <span className="text-black text-lg font-extrabold mt-3">
+          <span className="text-black text-lg font-semibold mt-3">
             ₹ {getFinalPrice()}
           </span>
         </div>
 
         <div className="flex flex-col items-start w-full">
-          <h4 className="text-xl font-semibold text-gray-800">{drink.name}</h4>
-          <p className="text-gray-600 text-[10px] mt-1 leading-relaxed">
+          <h4 className="text-xl font-semibold text-gray-800 px-0.5">{drink.name}</h4>
+          <p className="text-gray-600 text-[12px] mt-1 leading-relaxed px-0.5">
             {drink.description}
           </p>
         </div>
@@ -228,25 +233,25 @@ const FoodCard: React.FC<FoodCardProps> = ({
       </div>
 
       {/* VARIABLES SELECTION */}
-      {isAdd && (
-        <div className="flex items-center px-2 gap-1 mt-3 w-[295px]">
-        {drink.variables?.map((variant, i) => (
-          <button
-            key={i}
-            onClick={() =>
-              setSelectedVariant({ ...variant, discountedPrice: undefined })
-            }
-            className={`flex items-center gap-2 px-3 py-1 rounded-lg border ${
-              selectedVariant.quantity === variant.quantity
-                ? "border-yellow-500 bg-yellow-50"
-                : "border-gray-300"
-            } transition-all`}
-          >
-            {variant.quantity} {variant.unit}
-            <img src={variant.icon} alt="" className="w-4 h-4" />
-          </button>
-        ))}
-      </div>
+     {isAdd && drink.variables && (
+        <div className="flex items-center px-2 gap-1 mt-3 w-[295px] overflow-x-auto">
+          {drink.variables.map((variant, i) => (
+            <button
+              key={i}
+              onClick={() =>
+                setSelectedVariant({ ...variant, discountedPrice: undefined })
+              }
+              className={`flex items-center gap-2 px-3 py-1 rounded-lg border whitespace-nowrap ${
+                selectedVariant.quantity === variant.quantity
+                  ? "border-yellow-500 bg-yellow-50"
+                  : "border-gray-300"
+              } transition-all`}
+            >
+              {variant.quantity} {variant.unit}
+              <img src={variant.icon} alt="" className="w-4 h-4" />
+            </button>
+          ))}
+        </div>
       )}
 
       {/* OFFERS */}

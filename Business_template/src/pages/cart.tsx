@@ -48,7 +48,7 @@ const CartPage = ({selectedCategory,setSelectedCategory,setOrderedCategories,ord
         className="text-[24px] font-semibold"
         >Checkout</h1>
       <Banner banners={banners} />
-      <AddedItems items={items} totalPrice={totalPrice} totalQuantity={totalQuantity} onRemove={handleRemove}/>
+      <AddedItems items={items} totalPrice={totalPrice} totalQuantity={totalQuantity} onRemove={handleRemove} selectedCategory={selectedCategory}/>
       <CouponComponent/>
       <PaymentOptions/>
     </div>

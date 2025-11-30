@@ -10,7 +10,7 @@ const Banner =({banners})=>{
     spaceBetween={20}
     slidesPerView={1}
     navigation
-    pagination={{ clickable: true }}
+    // pagination={{ clickable: true }}
     autoplay={{ delay: 3500, disableOnInteraction: false }}
     loop
     breakpoints={{

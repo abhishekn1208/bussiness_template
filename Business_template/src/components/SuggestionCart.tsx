@@ -61,7 +61,7 @@ const SuggestionFoodCard: React.FC<SuggestionFoodProps> = ({
       w-full
     "
         >
-          <span>View in AR</span>
+          <span>What's Inside</span>
           <img
             src={groupIcon}
             alt="AR icon"

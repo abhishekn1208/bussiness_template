@@ -14,6 +14,7 @@ function App() {
   const location = useLocation();
   const [orderedCategories, setOrderedCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Drinks");
+  const [isAdd, setIsAdd] = useState(false);
 
   const hideNavbarRoutes = ["/product", "/"];
   const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
@@ -37,10 +38,15 @@ function App() {
                   orderedCategories={orderedCategories}
                   setSelectedCategory={setSelectedCategory}
                   selectedCategory={selectedCategory}
+                  setIsAdd={setIsAdd}
+                  isAdd={isAdd}
                 />
               }
             />
-            <Route path="/product" element={<ProductPage />} />
+            <Route
+              path="/product"
+              element={<ProductPage setIsAdd={setIsAdd} isAdd={isAdd} />}
+            />
             <Route
               path="/cart"
               element={
@@ -53,7 +59,7 @@ function App() {
               }
             />
           </Routes>
-          <Footer/>
+          <Footer />
         </main>
       </div>
     </>

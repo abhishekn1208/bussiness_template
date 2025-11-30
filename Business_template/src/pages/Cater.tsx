@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 import Banner from "../components/Banner";
 import { addToCart } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
-import jd from '/assets/JD.jpg';
+import jd from "/assets/JD.jpg";
 import jdGif from "/assets/jd.gif";
 import glass from "/assets/glass.png";
 import jmsn from "/assets/jamienson.png";
@@ -16,12 +16,19 @@ import lamb from "/assets/lamb.png";
 import banner1 from "/assets/Banner1.png";
 import banner2 from "/assets/Banner2.png";
 import banner3 from "/assets/Banner3.png";
+import jamesonGif from "/assets/jameson.gif";
+import jBGif from "/assets/jB.gif";
+import temporaGif from "/assets/tempora.gif";
+import wasabiGif from "/assets/wasabi.gif";
+import cigarGif from "/assets/cigar.gif";
 
 const Cater = ({
   orderedCategories,
   setOrderedCategories,
   selectedCategory,
   setSelectedCategory,
+  setIsAdd,
+  isAdd,
 }) => {
   const router = useNavigate();
   // const [selectedCategory,setSelectedCategory] = useState("Drinks")
@@ -30,7 +37,7 @@ const Cater = ({
   const drinks = [
     {
       _id: 1,
-      name: "Jack Daniel",
+      name: "Jack Daniel’s",
       image: jd,
       description:
         "Jack Daniel’s is a smooth, charcoal-mellowed Tennessee whiskey known for its rich flavor and iconic heritage. Crafted in Lynchburg since 1866, it embodies bold character with a hint of sweetness.",
@@ -63,9 +70,9 @@ const Cater = ({
       ],
 
       nutrients: [
-        { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
-        { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
-        { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
+        { label: "ABV%", value: 40, colors: ["#ef4444", "#f472b6"] },
+        // { label: "Calories", value: 120, colors: ["#22c55e", "#34d399"] },
+        // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
     },
 
@@ -75,7 +82,7 @@ const Cater = ({
       image: jmsn,
       description:
         "Jameson is a triple-distilled Irish whiskey celebrated for its smooth, balanced taste with notes of vanilla and spice.",
-      gif: cokeGif,
+      gif: jamesonGif,
 
       variables: [
         { quantity: 30, unit: "ml", price: 790, icon: glass },
@@ -103,9 +110,9 @@ const Cater = ({
       ],
 
       nutrients: [
-        { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
-        { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
-        { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
+        { label: "ABV%", value: 40, colors: ["#ef4444", "#f472b6"] },
+        // { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
+        // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
     },
 
@@ -115,7 +122,7 @@ const Cater = ({
       image: jb,
       description:
         "Jim Beam is a classic Kentucky bourbon known for its rich caramel flavor and smooth, oaky finish.",
-      gif: cokeGif,
+      gif: jBGif,
 
       variables: [
         { quantity: 30, unit: "ml", price: 820, icon: "/assets/glass.png" },
@@ -143,9 +150,9 @@ const Cater = ({
       ],
 
       nutrients: [
-        { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
-        { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
-        { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
+        { label: "ABV%", value: 40, colors: ["#ef4444", "#f472b6"] },
+        // { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
+        // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
     },
   ];
@@ -157,7 +164,7 @@ const Cater = ({
       image: tempura,
       description:
         "Delicate strands of enoki mushrooms fried to golden perfection, forming a crispy, airy nest. A light, artistic starter that pairs crunch with subtle umami flavor.",
-      gif: jdGif,
+      gif: temporaGif,
       price: 390,
 
       // variables: [
@@ -188,7 +195,7 @@ const Cater = ({
 
       nutrients: [
         { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
-        { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
+        { label: "Protien", value: 10, colors: ["#22c55e", "#34d399"] },
         { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
     },
@@ -199,7 +206,7 @@ const Cater = ({
       image: prawns,
       description:
         "Juicy prawns wrapped in a crisp golden shell, bursting with zesty wasabi heat. A bold fusion bite that fires up your palate with every crunch.",
-      gif: cokeGif,
+      gif: wasabiGif,
       price: 490,
 
       // variables: [
@@ -229,7 +236,7 @@ const Cater = ({
 
       nutrients: [
         { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
-        { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
+        { label: "Protein", value: 15, colors: ["#22c55e", "#34d399"] },
         { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
     },
@@ -240,7 +247,7 @@ const Cater = ({
       image: lamb,
       description:
         "Crispy rolls stuffed with spiced lamb mince and North African harissa for a fiery kick. A smoky, elegant appetizer that blends heat, crunch, and rich aroma.",
-      gif: cokeGif,
+      gif: cigarGif,
       price: 790,
       // variables: [
       //   { quantity: 30, unit: "ml", price: 820, icon: "/assets/glass.png" },
@@ -269,7 +276,7 @@ const Cater = ({
 
       nutrients: [
         { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
-        { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
+        { label: "Protein", value: 18, colors: ["#22c55e", "#34d399"] },
         { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
     },
@@ -313,7 +320,7 @@ const Cater = ({
       <Banner banners={banners} />
 
       <div className="flex w-full bg-gray-50 px-2">
-        <div className="h-screen sticky top-0">
+        <div className="sticky top-0">
           <Sidebar
             selectedCategory={selectedCategory}
             onSelectCategory={(name) => setSelectedCategory(name)}
@@ -330,12 +337,14 @@ const Cater = ({
           {selectedItems && selectedItems.length > 0 ? (
             selectedItems.map((item, index) => (
               <FoodCard
-                key={index}
+                key={`${item._id}-${selectedCategory}`}
                 drink={item}
                 onAdd={(item) => handleAddToCart(item)}
                 onViewAR={() => handleProductView(item)}
                 selectedCategory={selectedCategory}
                 setOrderedCategories={setOrderedCategories}
+                setIsAdd={setIsAdd}
+                isAdd={isAdd}
               />
             ))
           ) : (

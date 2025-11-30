@@ -26,35 +26,41 @@ const Sidebar: React.FC<SidebarProps> = ({
           const isSelected = selectedCategory === item.name;
 
           return (
-            <li
-              key={item.name}
-              onClick={() => onSelectCategory(item.name)}
-              className={`
+ <li
+  key={item.name}
+  onClick={() => onSelectCategory(item.name)}
+  className={`
     flex flex-col items-center gap-3 w-[60px] cursor-pointer transition-all duration-300
-    md:py-6 py-4 px-3 rounded-xl border border-white/20
-    shadow-md backdrop-blur-md
-    ${
-      isSelected
-        ? "scale-105 border-white/40 bg-white/20 shadow-[0_0_25px_rgba(255,255,255,0.45)] text-gray-900"
-        : "hover:opacity-100 hover:blur-0"
+    md:py-6 py-4 px-3 rounded-xl text-gray-900
+    border border-transparent  /* always keep a border */
+    ${isSelected 
+      ? "scale-110 bg-white/20 backdrop-blur-lg shadow-[0_0_20px_rgba(255,255,255,0.4)] border-white/40"
+      : "opacity-80 hover:opacity-100"
     }
   `}
-            >
-              <span
-                className={`text-sm md:text-base font-semibold transition-all ${
-                  isSelected ? "text-gray-900 drop-shadow-sm" : "text-gray-700"
-                }`}
-              >
-                {item.name}
-              </span>
-              <img
-                src={item.image}
-                alt={item.name}
-                className={`w-full object-contain rounded-md transition-all duration-300 ${
-                  isSelected ? "opacity-100" : "opacity-70 blur-[1px]"
-                }`}
-              />
-            </li>
+>
+
+
+  <span
+    className={`text-sm md:text-base font-semibold transition-all ${
+      isSelected
+        ? "text-gray-900 drop-shadow-sm"
+        : "text-gray-900"
+    }`}
+  >
+    {item.name}
+  </span>
+
+  <img
+    src={item.image}
+    alt={item.name}
+    className={`
+      w-full object-contain rounded-md transition-all duration-300 
+      ${isSelected ? "scale-110" : ""}
+    `}
+  />
+</li>
+
           );
         })}
       </ul>

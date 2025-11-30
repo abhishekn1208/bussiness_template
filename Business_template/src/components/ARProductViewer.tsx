@@ -7,41 +7,51 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 import SuggestionFoodCard from "./SuggestionCart";
-import InfoCard from "./InfoCard";
+// import InfoCard from "./InfoCard";
 import { useLocation } from "react-router-dom";
 import pina from "/assets/Pinacolada.jpg";
 import mocktail from "/assets/Mocktail.jpg";
 import cola from "/assets/Cola.jpg";
+import lagoon from "/assets/lagoon.jpg";
 
 // import Navbar from "./Navbar";
 
-export default function ARProductViewer() {
-    const router = useNavigate();
-    const location = useLocation();
-    const { drink } = location.state || {}; 
-if (!drink) {
-    return <div 
-    className="h-screen flex items-center justify-center font-extrabold text-3xl"
-    >AR View Not Available.</div>;
+export default function ARProductViewer({
+    isAdd,
+  setIsAdd
+}) {
+  const router = useNavigate();
+  const location = useLocation();
+  const { drink } = location.state || {};
+  if (!drink) {
+    return (
+      <div className="h-screen flex items-center justify-center font-extrabold text-3xl">
+        AR View Not Available.
+      </div>
+    );
   }
 
-  // console.log(drink)
+  console.log(drink);
   // const nutrients = [
   //   { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] }, // red → pink
   //   { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] }, // green gradient
   //   { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] }, // yellow → orange
   // ];
   const [isAdded, setIsAdded] = useState<Boolean>(false);
+  const navigate = useNavigate()
 
   const handleAdd = () => {
-    setIsAdded(true);
+    setIsAdd(true)
+ 
+      navigate(-1)
+    
   };
 
-    const handleProductView = () => {
+  const handleProductView = () => {
     router("/product");
   };
 
-   const drinks = [
+  const drinks = [
     {
       image: pina,
       name: "Pina Colada",
@@ -57,17 +67,17 @@ if (!drink) {
         "Non-alcoholic versions of cocktails, often fruit- or syrup-based.",
     },
     {
-      image:cola,
+      image: lagoon,
       name: "Blue Lagoon",
       price: 820,
       description: "Vibrant lemon-lime soda mixed with blue curacao syrup.",
     },
-     {
-      image: cola,
-      name: "Blue Lagoon",
-      price: 820,
-      description: "Vibrant lemon-lime soda mixed with blue curacao syrup.",
-    },
+    // {
+    //   image: cola,
+    //   name: "Coca-Cola",
+    //   price: 820,
+    //   description: "Vibrant lemon-lime soda mixed with blue curacao syrup.",
+    // },
   ];
 
   return (
@@ -167,8 +177,8 @@ if (!drink) {
       {/* <div className="w-full border"> */}
       <div className=" flex justify-center">
         <button
-        onClick={handleAdd}
-        className="
+          onClick={handleAdd}
+          className="
       w-full md:w-1/2 flex items-center justify-center gap-2 
        border border-gray-600/50 
        bg-gradient-to-l from-gray-900 to-gray-600 backdrop-blur-md 
@@ -177,49 +187,49 @@ if (!drink) {
        hover:shadow-[0_0_20px_rgba(228,179,1,0.3)]
        transition-all duration-300 text-lg font-bold
      "
-      >
-        {isAdded ? (
-          "Go To Cart"
-        ) : (
-          <>
-            {" "}
-            <IoMdAdd size={28} /> Add{" "}
-          </>
-        )}{" "}
-      </button>
+        >
+          {isAdded ? (
+            "Go To Cart"
+          ) : (
+            <>
+              {" "}
+              <IoMdAdd size={28} /> Add{" "}
+            </>
+          )}{" "}
+        </button>
       </div>
-      <InfoCard message="Allergen Information: Contains no major allergens; gluten-free and suitable for vegetarians & vegans."/>
-    <div className="w-full mx-auto my-10">
-  <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-gray-900">
-   Chef Recommendation
-  </h2>
+      {/* <InfoCard message="Allergen Information: Contains no major allergens; gluten-free and suitable for vegetarians & vegans."/> */}
+      <div className="w-full mx-auto my-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-gray-900">
+          Chef Recommendation
+        </h2>
 
-  <Swiper
-    modules={[ Pagination, Autoplay]}
-    spaceBetween={20}
-    slidesPerView={1}
-    navigation
-    pagination={{ clickable: true }}
-    autoplay={{ delay: 3500, disableOnInteraction: false }}
-    loop
-    breakpoints={{
-      640: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    }}
-    className="pb-10"
-  >
-    {drinks.map((drink, index) => (
-      <SwiperSlide key={index}>
-        <SuggestionFoodCard
-          image={drink.image}
-          name={drink.name}
-          onAdd={() => console.log("added")}
-          onViewAR={() => handleProductView()}
-        />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          // pagination={{ clickable: true }}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          loop
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-10"
+        >
+          {drinks.map((drink, index) => (
+            <SwiperSlide key={index}>
+              <SuggestionFoodCard
+                image={drink.image}
+                name={drink.name}
+                onAdd={() => console.log("added")}
+                onViewAR={() => handleProductView(drink)}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
       {/* </div> */}
     </div>
   );
