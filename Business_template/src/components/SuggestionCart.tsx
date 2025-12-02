@@ -38,7 +38,7 @@ const SuggestionFoodCard: React.FC<SuggestionFoodProps> = ({
       <div className="text-xl pb-2 text-center underline md:text-xl font-extrabold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
         {name}
       </div>
-      <div className="w-auto h-30 md:h-62 rounded-xl overflow-hidden">
+      <div className="w-auto h-40 md:h-62 rounded-xl overflow-hidden">
         <img
           src={image}
           alt={name}
@@ -71,7 +71,7 @@ const SuggestionFoodCard: React.FC<SuggestionFoodProps> = ({
 
         {count === 0 ? (
           <button
-            onClick={handleAdd}
+            onClick={onAdd}
             className="
         flex items-center justify-center gap-2
         border border-gray-600/50 

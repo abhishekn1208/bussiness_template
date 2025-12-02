@@ -45,7 +45,8 @@ function App() {
             />
             <Route
               path="/product"
-              element={<ProductPage setIsAdd={setIsAdd} isAdd={isAdd} />}
+              element={<ProductPage setIsAdd={setIsAdd} isAdd={isAdd}     setSelectedCategory={setSelectedCategory}
+                  selectedCategory={selectedCategory} orderedCategories={orderedCategories} setOrderedCategories={setOrderedCategories}/>}
             />
             <Route
               path="/cart"

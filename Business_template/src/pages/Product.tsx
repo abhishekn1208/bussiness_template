@@ -4,7 +4,11 @@ import Navbar from "../components/Navbar";
 
 const ProductPage = ({
   setIsAdd,
-  isAdd
+  isAdd,
+  selectedCategory,
+  setSelectedCategory,
+  setOrderedCategories,
+  orderedCategories
 }) => {
    const router = useNavigate();
    const handleProductView = (drink) => {
@@ -19,6 +23,10 @@ const ProductPage = ({
       viewAR={()=>handleProductView(item)}
       isAdd={isAdd}
       setIsAdd={setIsAdd}
+      selectedCategory={selectedCategory}
+      setSelectedCategory={setSelectedCategory}
+      orderedCategories={orderedCategories}
+      setOrderedCategories={setOrderedCategories}
       />
     </>
   );

@@ -9,16 +9,23 @@ import { useNavigate } from "react-router-dom";
 import SuggestionFoodCard from "./SuggestionCart";
 // import InfoCard from "./InfoCard";
 import { useLocation } from "react-router-dom";
-import pina from "/assets/Pinacolada.jpg";
-import mocktail from "/assets/Mocktail.jpg";
-import cola from "/assets/Cola.jpg";
-import lagoon from "/assets/lagoon.jpg";
+import tempura from "/assets/pinaC.jpeg";
+import tempuraGif from "/assets/pina.gif";
+import pina from "/assets/pina.jpeg";
+import pinaGif from "/assets/colodo.gif";
+import mocktail from "/assets/vMojito.jpeg";
+// import cola from "/assets/Cola.jpg";
+import lagoonGif from "/assets/blue.gif";
+import lagoon from "/assets/lagoon.jpeg";
+import vMojito from "/assets/vMojito.gif";
 
 // import Navbar from "./Navbar";
 
 export default function ARProductViewer({
-    isAdd,
-  setIsAdd
+  isAdd,
+  setIsAdd,
+  selectedCategory,
+  setSelectedCategory,
 }) {
   const router = useNavigate();
   const location = useLocation();
@@ -31,46 +38,88 @@ export default function ARProductViewer({
     );
   }
 
-  console.log(drink);
+  // console.log(drink);
   // const nutrients = [
   //   { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] }, // red → pink
   //   { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] }, // green gradient
   //   { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] }, // yellow → orange
   // ];
   const [isAdded, setIsAdded] = useState<Boolean>(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleAdd = () => {
-    setIsAdd(true)
- 
-      navigate(-1)
-    
+  const handleAdd = (item) => {
+    setIsAdd(true);
+    // console.log(item)
+    if (item.name === "Tempura Enoki Nest") {
+      setSelectedCategory("Starter");
+    }
+    navigate("/cater");
   };
 
-  const handleProductView = () => {
-    router("/product");
+  const handleProductView = (drink) => {
+    router("/product", { state: { drink } });
   };
 
   const drinks = [
     {
-      image: pina,
-      name: "Pina Colada",
-      price: 890,
-      description:
-        "Non-alcoholic version of a tropical cocktail with coconut and pineapple.",
-    },
-    {
+      _id: 2,
       image: mocktail,
       name: "Virgin Mojito",
-      price: 750,
+      price: 340,
       description:
         "Non-alcoholic versions of cocktails, often fruit- or syrup-based.",
+      gif: vMojito,
+      nutrients: [
+        { label: "Calories", value: 85, colors: ["#ef4444", "#f472b6"] },
+        // { label: "Protein", value: 15, colors: ["#22c55e", "#34d399"] },
+        // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
+      ],
+      category: "Drinks",
     },
     {
+      _id: 3,
       image: lagoon,
       name: "Blue Lagoon",
       price: 820,
       description: "Vibrant lemon-lime soda mixed with blue curacao syrup.",
+      gif: lagoonGif,
+      nutrients: [
+        { label: "ABV", value: 9, colors: ["#ef4444", "#f472b6"] },
+
+        // { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
+        // { label: "Protein", value: 15, colors: ["#22c55e", "#34d399"] },
+        // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
+      ],
+      category: "Drinks",
+    },
+    {
+      _id: 4,
+      image: pina,
+      name: "Piña Colada",
+      price: 890,
+      description:
+        "Non-alcoholic version of a tropical cocktail with coconut and pineapple.",
+      gif: pinaGif,
+      nutrients: [
+        { label: "Calories", value: 98, colors: ["#ef4444", "#f472b6"] },
+        // { label: "Protein", value: 15, colors: ["#22c55e", "#34d399"] },
+        // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
+      ],
+      category: "Drinks",
+    },
+    {
+      _id: 1,
+      image: tempura,
+      name: "Tempura Enoki Nest",
+      price: 890,
+      description:
+        "Non-alcoholic version of a tropical cocktail with coconut and pineapple.",
+      gif: tempuraGif,
+      nutrients: [
+        { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
+        { label: "Protien", value: 10, colors: ["#22c55e", "#34d399"] },
+        { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
+      ],
     },
     // {
     //   image: cola,
@@ -164,7 +213,7 @@ export default function ARProductViewer({
                 {/* Value inside the circle */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-sm font-bold text-gray-900">
-                    {item.value}%
+                    {item.value} {item.label === "Calories" ? "kcal" : "%"}
                   </span>
                 </div>
               </div>
@@ -177,7 +226,7 @@ export default function ARProductViewer({
       {/* <div className="w-full border"> */}
       <div className=" flex justify-center">
         <button
-          onClick={handleAdd}
+          onClick={() => handleAdd(drink)}
           className="
       w-full md:w-1/2 flex items-center justify-center gap-2 
        border border-gray-600/50 
@@ -223,7 +272,7 @@ export default function ARProductViewer({
               <SuggestionFoodCard
                 image={drink.image}
                 name={drink.name}
-                onAdd={() => console.log("added")}
+                onAdd={() => handleAdd(drink)}
                 onViewAR={() => handleProductView(drink)}
               />
             </SwiperSlide>

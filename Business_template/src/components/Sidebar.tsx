@@ -1,7 +1,7 @@
-import drinks from "/assets/drinks.png";
-import starter from "/assets/starter.png";
-import meal from "/assets/Meal.png";
-import dessert from "/assets/Dessert.png";
+import drinks from "/assets/drinks.webp";
+import starter from "/assets/starter.webp";
+import meal from "/assets/Meal.webp";
+import dessert from "/assets/Dessert.webp";
 
 type SidebarProps = {
   onSelectCategory: (name: string) => void;
@@ -26,41 +26,43 @@ const Sidebar: React.FC<SidebarProps> = ({
           const isSelected = selectedCategory === item.name;
 
           return (
- <li
+           <li
   key={item.name}
   onClick={() => onSelectCategory(item.name)}
   className={`
-    flex flex-col items-center gap-3 w-[60px] cursor-pointer transition-all duration-300
+    relative flex flex-col items-center gap-3 w-[60px] cursor-pointer transition-all duration-300
     md:py-6 py-4 px-3 rounded-xl text-gray-900
-    border border-transparent  /* always keep a border */
-    ${isSelected 
-      ? "scale-110 bg-white/20 backdrop-blur-lg shadow-[0_0_20px_rgba(255,255,255,0.4)] border-white/40"
+    border border-transparent
+    ${isSelected
+      ? "scale-110 bg-white/10 backdrop-blur-xl border-white/40 shadow-[0_8px_24px_rgba(255,255,255,0.25)] before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-br before:from-white/20 before:to-transparent"
       : "opacity-80 hover:opacity-100"
     }
   `}
 >
+              <span
+                className={`text-sm md:text-base font-semibold transition-all ${
+                  isSelected ? "text-gray-900 drop-shadow-sm" : "text-gray-900"
+                }`}
+              >
+                {item.name}
+              </span>
 
-
-  <span
-    className={`text-sm md:text-base font-semibold transition-all ${
-      isSelected
-        ? "text-gray-900 drop-shadow-sm"
-        : "text-gray-900"
-    }`}
-  >
-    {item.name}
-  </span>
-
+             <div
+  className={`
+    w-[45px] h-[45px] rounded-lg overflow-hidden flex items-center justify-center
+    ${isSelected ? "bg-white/10" : "bg-transparent"}
+  `}
+>
   <img
     src={item.image}
     alt={item.name}
-    className={`
-      w-full object-contain rounded-md transition-all duration-300 
-      ${isSelected ? "scale-110" : ""}
-    `}
+    className={`w-full h-full object-cover transition-all duration-300 ${
+      isSelected ? "scale-110" : ""
+    }`}
   />
-</li>
+</div>
 
+            </li>
           );
         })}
       </ul>

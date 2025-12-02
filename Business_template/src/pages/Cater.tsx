@@ -5,22 +5,22 @@ import Banner from "../components/Banner";
 import { addToCart } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import jd from "/assets/JD.jpg";
-import jdGif from "/assets/jd.gif";
-import glass from "/assets/glass.png";
-import jmsn from "/assets/jamienson.png";
-import cokeGif from "/assets/coke.gif";
-import jb from "/assets/jim.png";
-import tempura from "/assets/tempura.png";
+import jdGif from "/assets/JD.gif";
+import glass from "/assets/glass.jpg";
+import jmsn from "/assets/jamienson.jpg";
+// import cokeGif from "/assets/coke.gif";
+import jb from "/assets/jim.jpg";
+import tempura from "/assets/pinaC.jpeg";
 import prawns from "/assets/prawn.jpg";
-import lamb from "/assets/lamb.png";
-import banner1 from "/assets/Banner1.png";
-import banner2 from "/assets/Banner2.png";
-import banner3 from "/assets/Banner3.png";
-import jamesonGif from "/assets/jameson.gif";
-import jBGif from "/assets/jB.gif";
-import temporaGif from "/assets/tempora.gif";
-import wasabiGif from "/assets/wasabi.gif";
-import cigarGif from "/assets/cigar.gif";
+import lamb from "/assets/lamb.jpg";
+import banner1 from "/assets/Banner1.webp";
+import banner2 from "/assets/Banner2.webp";
+import banner3 from "/assets/Banner3.webp";
+import jamesonGif from "/assets/JM.gif";
+import jBGif from "/assets/Jim.gif";
+import temporaGif from "/assets/pina.gif";
+import wasabiGif from "/assets/prawns.gif";
+import cigarGif from "/assets/lamb.gif";
 
 const Cater = ({
   orderedCategories,
@@ -44,7 +44,7 @@ const Cater = ({
       gif: jdGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 890, icon: "/assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 890, icon: glass },
         {
           quantity: 60,
           unit: "ml",
@@ -70,7 +70,7 @@ const Cater = ({
       ],
 
       nutrients: [
-        { label: "ABV%", value: 40, colors: ["#ef4444", "#f472b6"] },
+        { label: "ABV", value: 40, colors: ["#ef4444", "#f472b6"] },
         // { label: "Calories", value: 120, colors: ["#22c55e", "#34d399"] },
         // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
@@ -110,7 +110,7 @@ const Cater = ({
       ],
 
       nutrients: [
-        { label: "ABV%", value: 40, colors: ["#ef4444", "#f472b6"] },
+        { label: "ABV", value: 40, colors: ["#ef4444", "#f472b6"] },
         // { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
         // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
@@ -125,7 +125,7 @@ const Cater = ({
       gif: jBGif,
 
       variables: [
-        { quantity: 30, unit: "ml", price: 820, icon: "/assets/glass.png" },
+        { quantity: 30, unit: "ml", price: 820, icon: glass },
         {
           quantity: 60,
           unit: "ml",
@@ -150,7 +150,7 @@ const Cater = ({
       ],
 
       nutrients: [
-        { label: "ABV%", value: 40, colors: ["#ef4444", "#f472b6"] },
+        { label: "ABV", value: 40, colors: ["#ef4444", "#f472b6"] },
         // { label: "Sugar", value: 30, colors: ["#22c55e", "#34d399"] },
         // { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
@@ -195,7 +195,7 @@ const Cater = ({
 
       nutrients: [
         { label: "Carbs", value: 50, colors: ["#ef4444", "#f472b6"] },
-        { label: "Protien", value: 10, colors: ["#22c55e", "#34d399"] },
+        { label: "Protein", value: 10, colors: ["#22c55e", "#34d399"] },
         { label: "Fat", value: 10, colors: ["#facc15", "#fb923c"] },
       ],
     },
@@ -288,7 +288,7 @@ const Cater = ({
   const banners = [banner1, banner2, banner3];
 
   const handleProductView = (drink) => {
-    // console.log(drink);
+    // console.log(selectedCategory);
     router("/product", { state: { drink } });
   };
 
@@ -308,7 +308,7 @@ const Cater = ({
   const selectedItems = getSelectedItems();
 
   const handleAddToCart = async (item) => {
-    // console.log(item)
+    console.log(item)
     dispatch(addToCart(item));
     if (!orderedCategories.includes(selectedCategory)) {
       setOrderedCategories((prev) => [...prev, selectedCategory]);

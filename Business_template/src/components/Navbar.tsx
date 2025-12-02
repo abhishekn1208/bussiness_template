@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { useNavigate } from "react-router-dom";
-import cart from "/assets/cart.png"
+import cart from "/assets/cart.webp"
 
 type MessageProp = {
   message : string

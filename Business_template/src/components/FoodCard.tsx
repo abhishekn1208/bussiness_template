@@ -4,6 +4,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import AnimatedPrice from "./AnimatedPrice";
 import { useNavigate } from "react-router-dom";
+import cart from '/assets/cart.webp'
 
 type FoodCardProps = {
   drink: {
@@ -298,7 +299,7 @@ const FoodCard: React.FC<FoodCardProps> = ({
         >
           Go to Cart
           <img
-            src="../assets/cart.png"
+            src={cart}
             alt="cart"
             className="w-[24px] h-[24px]"
           />
