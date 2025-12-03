@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { IoMdAdd } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +26,7 @@ export default function ARProductViewer({
   setIsAdd,
   selectedCategory,
   setSelectedCategory,
+  viewAR
 }) {
   const router = useNavigate();
   const location = useLocation();
@@ -56,9 +57,6 @@ export default function ARProductViewer({
     navigate("/cater");
   };
 
-  const handleProductView = (drink) => {
-    router("/product", { state: { drink } });
-  };
 
   const drinks = [
     {
@@ -130,9 +128,9 @@ export default function ARProductViewer({
   ];
 
   return (
-    <div className="px-2 py-2">
+    <div className="px-0 py-2 " id="page-root">
       {/* <Navbar message="AR Menu"/> */}
-      <div className="relative w-full max-w-3xl mx-auto h-[500px] md:h-[650px]  rounded-2xl shadow-lg overflow-hidden">
+      <div className="relative h-[500px] rounded-2xl shadow-lg">
         <Canvas
           camera={{ position: [0, 0, 4] }}
           style={{
@@ -224,7 +222,7 @@ export default function ARProductViewer({
         </div>
       </div>
       {/* <div className="w-full border"> */}
-      <div className=" flex justify-center">
+      <div className="flex justify-center px-2">
         <button
           onClick={() => handleAdd(drink)}
           className="
@@ -233,7 +231,7 @@ export default function ARProductViewer({
        bg-gradient-to-l from-gray-900 to-gray-600 backdrop-blur-md 
        rounded-md my-4 py-4 px-4 md:px-0 text-white 
        shadow-[0_4px_20px_rgba(0,0,0,0.4)]
-       hover:shadow-[0_0_20px_rgba(228,179,1,0.3)]
+       hover:shadow-[0_0_10px_rgba(228,179,1,0.3)]
        transition-all duration-300 text-lg font-bold
      "
         >
@@ -273,7 +271,7 @@ export default function ARProductViewer({
                 image={drink.image}
                 name={drink.name}
                 onAdd={() => handleAdd(drink)}
-                onViewAR={() => handleProductView(drink)}
+                onViewAR={() => viewAR(drink)}
               />
             </SwiperSlide>
           ))}
